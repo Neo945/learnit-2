@@ -66,4 +66,34 @@ module.exports = {
             403
         );
     },
+    getClassroom: async (req, res) => {
+        errorHandler(
+            req,
+            res,
+            async () => {
+                const classroom = await Classroom.find({ students: { $in: [req.user._id] } });
+                if (classroom) {
+                    res.status(200).json({ message: 'success', ...classroom });
+                } else {
+                    res.status(404).json({ message: 'not found' });
+                }
+            },
+            404
+        );
+    },
+    getTeacherClassroom: async (req, res) => {
+        errorHandler(
+            req,
+            res,
+            async () => {
+                const classroom = await Classroom.find({ teacher: req.user._id });
+                if (classroom) {
+                    res.status(200).json({ message: 'success', ...classroom });
+                } else {
+                    res.status(404).json({ message: 'not found' });
+                }
+            },
+            404
+        );
+    },
 };
