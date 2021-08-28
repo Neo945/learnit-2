@@ -12,9 +12,9 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
-          <Route path='/' exact component={Dashboard} />  
+          <Route path='/' exact component={Home} />  
           <Route path='/assignments' component={Assignments} />
           <Route path='/calendar' component={SignUp} />
         </Switch>
