@@ -27,7 +27,11 @@ const upload = (bucket) =>
             },
             key: function (req, file, cb) {
                 console.log('file key ', file);
-                cb(null, 'file.pdf');
+                const fileName = file.originalname.split('.');
+                const ext = fileName[fileName.length - 1]?.toLowerCase()
+                    ? fileName[fileName.length - 1]?.toLowerCase()
+                    : 'pdf';
+                cb(null, `${req.user._id}/${req.body.task}.${ext}`);
             },
         }),
     });

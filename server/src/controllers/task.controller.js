@@ -72,7 +72,7 @@ module.exports = {
                         req,
                         res,
                         async () => {
-                            const response = await Tresponse.create({ task, user: _id, responseLink: req.file.link });
+                            const response = await Tresponse.create({ task, user: _id, responseLink: req.file.location });
                             res.status(200).json({ message: 'success', ...response });
                         },
                         403
