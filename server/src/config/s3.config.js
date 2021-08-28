@@ -27,7 +27,7 @@ const upload = (bucket) =>
             },
             key: function (req, file, cb) {
                 console.log('file key ', file);
-                cb(null, 'auio.mp3');
+                cb(null, 'file.pdf');
             },
         }),
     });
