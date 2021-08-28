@@ -1,4 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
+  list-style: none;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: 800;
+}
+
+/* subject component */
+.subject-grid{
+  padding: 50px;
+  background: space;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+.subject-wrap{
+  cursor: pointer;
+  overflow: hidden;
+  height: 30vh;
+  border-radius: 5px;
+  /* padding controls height, will always be perfectly square regardless of width */
+  border: 1px solid rgb(204, 204, 204);
+  position: relative;
+  opacity: 0.8;
+}
+.subject-wrap:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.subject-img img{
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.subject-info {
+  font-size: 1rem;
+  padding: 10px;
+}
+
+/* assignments */
+.assignment-container {
+  display: flex;
+  padding: 50px;
+  background: space;
+}
+
+.completed {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 10px;
+  margin: 30px;
+  flex: 1;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.pending {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 10px;
+  margin: 30px;
+  flex: 1;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.wrap {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background: rgb(250, 250, 250);
+  margin: 5px;
+  margin-bottom: 10px;
+  height: 80px;
+  width: 90%;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+.assignment-info {
+  height: 33px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 5px 2px;
+}
+.wrap span {
+  align-self: flex-start;
+  vertical-align: bottom;
+  font-size: 0.6rem;
 }
