@@ -17,3 +17,7 @@ router.get(
 router.get('/google/redirect', passport.authenticate('google'), view.googleOauthRedirect);
 
 module.exports = router;
+/**
+ * /api/user/google
+ * /api/user/google/redirect
+ */

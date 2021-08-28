@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { Member } = require('../models/user');
+const { User } = require('../models/user');
 
 async function UserAuthentication(req, res, next) {
     if (req.cookies.jwt) {
@@ -9,8 +9,7 @@ async function UserAuthentication(req, res, next) {
                 req.user = null;
                 next();
             } else {
-                Member.findOne({ user: id.id })
-                    .populate('user')
+                User.findOne({ user: id.id })
                     .then((user) => {
                         console.log(user);
                         const u = { ...user };

@@ -17,7 +17,7 @@ passport.use(
         {
             clientID: env.CLIENT_ID,
             clientSecret: env.CLIENT_SECRET,
-            callbackURL: 'http://localhost:5000/api/auth/google/redirect',
+            callbackURL: 'http://localhost:4000/api/user/google/redirect',
         },
         async (access, refresh, email, done) => {
             const user = await User.findOne({ googleID: email.id });
@@ -32,7 +32,6 @@ passport.use(
                     email: email.emails[0].value,
                     password: await bcrypt.genSalt(),
                 });
-                await Artist.create({ user: nu._id });
                 done(null, nu);
             }
         }
