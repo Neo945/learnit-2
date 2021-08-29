@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const GoogleStratagy = require('passport-google-oauth20');
 const env = require('./config');
-const { User, Artist } = require('../models/user');
+const { User } = require('../models/user');
 
 passport.serializeUser((user, done) => {
     done(null, user._id);

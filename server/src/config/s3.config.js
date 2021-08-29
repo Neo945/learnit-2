@@ -12,9 +12,9 @@ const s3 = new aws.S3({
 const deleteParams = {
     Bucket: env.S3_BUCKET_NAME,
     key: '',
-    Delete: {
-        key: [],
-    },
+    // Delete: {
+    //     key: [],
+    // },
 };
 const upload = (bucket) =>
     multer({

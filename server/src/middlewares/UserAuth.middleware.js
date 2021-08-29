@@ -13,11 +13,14 @@ async function UserAuthentication(req, res, next) {
                     .then((user) => {
                         console.log(user);
                         const u = { ...user };
-                        u.user.password = null;
+                        u.password = null;
                         req.user = u;
                         next();
                     })
-                    .catch((erro) => console.log(erro));
+                    .catch((erro) => {
+                        console.log(erro);
+                        next();
+                    });
             }
         });
     } else {
