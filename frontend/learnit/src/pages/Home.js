@@ -81,7 +81,7 @@ const Home = () => {
           The online collaborative platform to <br />
           bring students and teachers together anytime, anywhere.
         </h3>
-        <Button color="secondary">LogIn</Button>
+        <Link to='/sign-in'><Button color="secondary">LogIn</Button></Link>
         <Link to="/sign-up" style={{ textDecoration: "none" }}>
           <Button
             variant="contained"
