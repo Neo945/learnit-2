@@ -7,6 +7,8 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Assignments from "./pages/Assignments";
+import Meet from './pages/Meet';
+
 function App() {
   // const [user, setUser] = useState(true);
   return (
@@ -19,6 +21,7 @@ function App() {
           <Route path="/sign-up" component={SignUp} />
           <Route path="/sign-in" component={SignIn} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path='/meet' component={Meet} />
         </Switch>
       </Router>
     </>
