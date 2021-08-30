@@ -70,8 +70,7 @@ module.exports = {
         const member = await Member.findOne({ user: req.user._id });
         if (member) res.redirect('http://localhost:3000/dashboard');
         else {
-            await Member.create({ user: req.user._id, phone: '9372518991' });
-            res.redirect('http://localhost:3000/fill-info');
+            res.redirect('http://localhost:3000/info');
         }
     },
     sendVerifcationEmail: (req, res) => {
