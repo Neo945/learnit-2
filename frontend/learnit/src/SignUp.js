@@ -52,6 +52,7 @@ const initialformState = {
   lastName: "",
   email: "",
   password: "",
+  phone: "",
 };
 const formReducer = (state, action) => {
   switch (action.type) {
@@ -77,6 +78,7 @@ export default function SignUp() {
       payload: e.target.value,
     });
   };
+  const [checked, setChecked] = React.useState(false);
 
   // const registerUser = (e) => {
   //   console.log(formState);
@@ -128,6 +130,8 @@ export default function SignUp() {
               username: formState.firstName + " " + formState.lastName,
               email: formState.email,
               password: formState.password,
+              phone: formState.phone,
+              isTeacher: checked,
             };
             const response = await fetch(`http://localhost:4000/api/user/add`, {
               method: "POST",
@@ -178,6 +182,24 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="phone"
+                label="Phone number"
+                type="number"
+                id="phone"
+                autoComplete="current-password"
+                value={formState.phone}
+                onChange={(e) => {
+                  if (error) setError(false);
+                  handleFormChange(e);
+                }}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
                 error={error}
                 variant="outlined"
                 required
@@ -193,6 +215,7 @@ export default function SignUp() {
                 }}
               />
             </Grid>
+
             <Grid item xs={12}>
               <TextField
                 error={error}
@@ -213,8 +236,16 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                control={
+                  <Checkbox
+                    color="primary"
+                    checked={checked}
+                    onChange={() => {
+                      setChecked(!checked);
+                    }}
+                  />
+                }
+                label="Are you a instructor?"
               />
             </Grid>
           </Grid>

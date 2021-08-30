@@ -24,7 +24,7 @@ module.exports = {
                 console.log(user, req.body);
                 if (!user) {
                     const nu = await User.create({ ...req.body });
-                    await Member.create({ ...req.body, phone: '9372518991', user: nu._id });
+                    await Member.create({ ...req.body, user: nu._id });
                     res.status(201).json({ message: 'success', user: nu });
                 } else {
                     res.status(200).json({ message: 'user already exist', user });
