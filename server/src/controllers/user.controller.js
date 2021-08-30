@@ -20,9 +20,15 @@ module.exports = {
             req,
             res,
             async () => {
-                const nu = await User.create({ ...req.body });
-                // const user = await Member.create({ ...req.body, user: nu._id });
-                res.status(201).json({ message: 'success', user: nu });
+                const user = await User.findOne({ email: req.body.email });
+                console.log(user, req.body);
+                if (!user) {
+                    const nu = await User.create({ ...req.body });
+                    await Member.create({ ...req.body, phone: '9372518991', user: nu._id });
+                    res.status(201).json({ message: 'success', user: nu });
+                } else {
+                    res.status(200).json({ message: 'user already exist', user });
+                }
             },
             403
         );
@@ -60,8 +66,13 @@ module.exports = {
             403
         );
     },
-    googleOauthRedirect: (req, res) => {
-        res.redirect('http://localhost:3000/dashboard');
+    googleOauthRedirect: async (req, res) => {
+        const member = await Member.findOne({ user: req.user._id });
+        if (member) res.redirect('http://localhost:3000/dashboard');
+        else {
+            await Member.create({ user: req.user._id, phone: '9372518991' });
+            res.redirect('http://localhost:3000/fill-info');
+        }
     },
     sendVerifcationEmail: (req, res) => {
         errorHandler(

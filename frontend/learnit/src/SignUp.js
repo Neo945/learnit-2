@@ -1,5 +1,4 @@
 import React, { useReducer } from "react";
-import axios from "axios";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -68,7 +67,7 @@ const formReducer = (state, action) => {
 
 export default function SignUp() {
   const classes = useStyles();
-
+  const [error, setError] = React.useState(false);
   const [formState, dispatch] = useReducer(formReducer, initialformState);
 
   const handleFormChange = (e) => {
@@ -139,7 +138,14 @@ export default function SignUp() {
                 "Content-type": "application/json; charset=UTF-8",
               },
             });
-            console.log(await response.json());
+            const json = await response.json();
+            if (json.message === "success") {
+              window.location.href = "http://localhost:3000/sign-in";
+              setError(false);
+            } else {
+              console.log(json);
+              setError(true);
+            }
           }}
         >
           <Grid container spacing={2}>
@@ -172,6 +178,7 @@ export default function SignUp() {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                error={error}
                 variant="outlined"
                 required
                 fullWidth
@@ -180,11 +187,15 @@ export default function SignUp() {
                 name="email"
                 autoComplete="email"
                 value={formState.email}
-                onChange={(e) => handleFormChange(e)}
+                onChange={(e) => {
+                  if (error) setError(false);
+                  handleFormChange(e);
+                }}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                error={error}
                 variant="outlined"
                 required
                 fullWidth
@@ -194,7 +205,10 @@ export default function SignUp() {
                 id="password"
                 autoComplete="current-password"
                 value={formState.password}
-                onChange={(e) => handleFormChange(e)}
+                onChange={(e) => {
+                  if (error) setError(false);
+                  handleFormChange(e);
+                }}
               />
             </Grid>
             <Grid item xs={12}>
