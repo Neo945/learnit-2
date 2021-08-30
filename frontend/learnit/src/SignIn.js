@@ -104,9 +104,9 @@ export default function SignIn() {
                 },
               }
             );
-            const newResponse = (await response.json());
-            if(newResponse.mesage.toLowerCase() == 'Success'.toLowerCase()){
-              window.location.href='http://localhost:3000/dashboard'
+            const newResponse = await response.json();
+            if (newResponse.mesage.toLowerCase() === "Success".toLowerCase()) {
+              window.location.href = "http://localhost:3000/dashboard";
             }
           }}
         >

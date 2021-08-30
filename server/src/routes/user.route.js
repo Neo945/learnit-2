@@ -7,6 +7,7 @@ router.post('/add', view.register);
 router.post('/add/info', view.addInfo);
 router.post('/login', view.login);
 router.get('/logout', isa, view.logout);
+router.get('/get', view.getUser);
 
 router.get(
     '/google',

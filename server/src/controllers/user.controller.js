@@ -4,6 +4,19 @@ const { User, Member } = require('../models/user');
 const transport = require('../config/mailer.config');
 
 module.exports = {
+    getUser: async (req, res) => {
+        errorHandler(
+            req,
+            res,
+            async () => {
+                console.log('req.user', req.user);
+                const user = await Member.findOne({ user: req.user._id }).populate('user', '-password');
+                if (user) res.status(200).json(user);
+                else res.status(404).json({ message: 'User not found' });
+            },
+            403
+        );
+    },
     addInfo: async (req, res) => {
         errorHandler(
             req,

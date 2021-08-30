@@ -5,14 +5,13 @@ async function UserAuthentication(req, res, next) {
     if (req.cookies.jwt) {
         jwt.verify(req.cookies.jwt, process.env.SECRET_KEY, (err, id) => {
             if (err) {
-                console.log(err);
                 req.user = null;
                 next();
-            } else {
-                User.findOne({ user: id.id })
+            } else if (!req.user) {
+                User.findById(id.id)
                     .then((user) => {
                         console.log(user);
-                        const u = { ...user };
+                        const u = { ...user._doc };
                         u.password = null;
                         req.user = u;
                         next();
@@ -21,6 +20,8 @@ async function UserAuthentication(req, res, next) {
                         console.log(erro);
                         next();
                     });
+            } else {
+                next();
             }
         });
     } else {
