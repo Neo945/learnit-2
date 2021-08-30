@@ -11,6 +11,7 @@ import Meet from './pages/Meet';
 
 function App() {
   // const [user, setUser] = useState(true);
+  const subject = 'maths'
   return (
     <>
       <Router>
@@ -21,7 +22,9 @@ function App() {
           <Route path="/sign-up" component={SignUp} />
           <Route path="/sign-in" component={SignIn} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path='/meet' component={Meet} />
+          <Route path='/meet' render={(props) => (
+            <Meet subject = {subject} />
+          )} />
         </Switch>
       </Router>
     </>
