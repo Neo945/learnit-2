@@ -95,3 +95,79 @@
   vertical-align: bottom;
   font-size: 0.6rem;
 }
+
+/* individual subject */
+.main {
+  display: flex;
+  padding: 30px;
+  background: space;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex:1;
+  height: 100%;
+  padding: 10px;
+}
+
+.subject-about {
+  margin-bottom: 10px;
+  height: 30vh;
+  width: 30vw;
+  border-radius: 5px;
+  /* padding controls height, will always be perfectly square regardless of width */
+  border: 1px solid rgb(204, 204, 204);
+  position: relative;
+}
+
+.weekly-test {
+  height: 30vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 10px;
+  margin: 20px;
+  flex: 1;
+  height: 20vh;
+  overflow-y: scroll;
+}
+
+.test-wrap {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background: rgb(250, 250, 250);
+  margin: 5px;
+  margin-bottom: 10px;
+  height: 60px;
+  width: 90%;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+}
+
+.test-info {
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 5px 2px;
+}
+
+.right-side {
+  display: flex;
+  align-items: center;
+  flex: 2;
+  height: 100%;
+  padding: 10px;
+  border: 1px solid rgb(204, 204, 204);
+}
+
+.chat-section {
+  height: 70vh;
+  margin: 20px;
+  width: 100%;
+}
