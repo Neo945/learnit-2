@@ -31,6 +31,10 @@ const UserSchema = new Schema(
             minlength: [10, 'Email Length less than 10'],
             validate: [isEmail, 'Invalid email'],
         },
+        isVarified: {
+            type: Boolean,
+            default: false,
+        },
     },
     {
         timestamps: true,
@@ -55,6 +59,7 @@ function getToken(id) {
 }
 UserSchema.statics.login = async function (email, password) {
     const user = await this.findOne({ email });
+    console.log(user, password);
     if (await bcrypt.compare(password, user.password)) {
         return getToken(user._id);
     }
@@ -75,19 +80,6 @@ const memberSchema = new Schema({
         type: Boolean,
         default: false,
         required: true,
-    },
-    name: {
-        type: String,
-        required: true,
-        trim: true,
-        minlength: 3,
-        maxlength: 50,
-    },
-    age: {
-        type: Number,
-        required: true,
-        min: 1,
-        max: 100,
     },
     phone: {
         type: String,

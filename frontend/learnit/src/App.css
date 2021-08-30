@@ -39,6 +39,12 @@
 .subject-info {
   font-size: 1rem;
   padding: 10px;
+  display: flex;
+}
+
+.btn-placement {
+  position: absolute;
+  right: 10px;
 }
 
 /* assignments */

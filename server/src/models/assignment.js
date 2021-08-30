@@ -23,7 +23,6 @@ const AssignmentSchema = new Schema(
         classroom: {
             type: Schema.Types.ObjectId,
             ref: 'classroom',
-            required: true,
             validate: {
                 validator: function (v) {
                     return mongoose.Types.ObjectId.isValid(v);

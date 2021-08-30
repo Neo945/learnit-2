@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const GoogleStratagy = require('passport-google-oauth20');
 const env = require('./config');
-const { User, Artist } = require('../models/user');
+const { User } = require('../models/user');
 
 passport.serializeUser((user, done) => {
     done(null, user._id);
@@ -17,7 +17,7 @@ passport.use(
         {
             clientID: env.CLIENT_ID,
             clientSecret: env.CLIENT_SECRET,
-            callbackURL: 'http://localhost:5000/api/auth/google/redirect',
+            callbackURL: 'http://localhost:4000/api/user/google/redirect',
         },
         async (access, refresh, email, done) => {
             const user = await User.findOne({ googleID: email.id });
@@ -31,8 +31,8 @@ passport.use(
                     username: email.displayName,
                     email: email.emails[0].value,
                     password: await bcrypt.genSalt(),
+                    isVarified: true,
                 });
-                await Artist.create({ user: nu._id });
                 done(null, nu);
             }
         }

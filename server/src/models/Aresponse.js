@@ -9,13 +9,17 @@ const AresponseSchema = new Schema(
             ref: 'user',
             required: true,
         },
-        answers: [
+        response: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'answer',
-                required: true,
+                ref: 'response',
             },
         ],
+        assessment: {
+            type: Schema.Types.ObjectId,
+            ref: 'assessment',
+            required: true,
+        },
     },
     {
         timestamps: true,

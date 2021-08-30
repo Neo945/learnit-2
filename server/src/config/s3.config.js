@@ -12,9 +12,9 @@ const s3 = new aws.S3({
 const deleteParams = {
     Bucket: env.S3_BUCKET_NAME,
     key: '',
-    Delete: {
-        key: [],
-    },
+    // Delete: {
+    //     key: [],
+    // },
 };
 const upload = (bucket) =>
     multer({
@@ -27,7 +27,11 @@ const upload = (bucket) =>
             },
             key: function (req, file, cb) {
                 console.log('file key ', file);
-                cb(null, 'auio.mp3');
+                const fileName = file.originalname.split('.');
+                const ext = fileName[fileName.length - 1]?.toLowerCase()
+                    ? fileName[fileName.length - 1]?.toLowerCase()
+                    : 'pdf';
+                cb(null, `${req.user._id}/${req.body.task}.${ext}`);
             },
         }),
     });
