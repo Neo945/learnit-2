@@ -31,6 +31,10 @@ const UserSchema = new Schema(
             minlength: [10, 'Email Length less than 10'],
             validate: [isEmail, 'Invalid email'],
         },
+        isVarified: {
+            type: Boolean,
+            default: false,
+        },
     },
     {
         timestamps: true,

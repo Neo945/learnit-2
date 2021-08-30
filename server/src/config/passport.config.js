@@ -31,6 +31,7 @@ passport.use(
                     username: email.displayName,
                     email: email.emails[0].value,
                     password: await bcrypt.genSalt(),
+                    isVarified: true,
                 });
                 done(null, nu);
             }
