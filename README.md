@@ -26,4 +26,4 @@ Existing users will use this page to log-in
 
 ![image](https://user-images.githubusercontent.com/56110278/131532674-c33e8e47-5a63-4318-ba94-f43177cde8c3.png)
 
-
+### For more information about the server go to [server](https://github.com/Neo945/learnit-2/tree/main/server) folder or [server README.md](https://github.com/Neo945/learnit-2/blob/main/server/README.md)
