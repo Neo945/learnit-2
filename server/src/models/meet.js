@@ -57,5 +57,5 @@ meetSchema.pre('save', function (next) {
     }
 });
 
-const Meet = mongoose.model('Meet', meetSchema);
+const Meet = mongoose.model('meet', meetSchema);
 module.exports = Meet;

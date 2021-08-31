@@ -23,7 +23,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(require('./middlewares/UserAuth.middleware'));
+app.use(require('./middlewares/UserAuth.middleware'));
 app.use('/api', require('./router'));
 
 module.exports = app;

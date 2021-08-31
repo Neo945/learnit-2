@@ -26,5 +26,5 @@ const AresponseSchema = new Schema(
     }
 );
 
-const Aresponse = mongoose.model('Aresponse', AresponseSchema);
+const Aresponse = mongoose.model('aresponse', AresponseSchema);
 module.exports = { Aresponse };

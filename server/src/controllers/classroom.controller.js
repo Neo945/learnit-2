@@ -71,9 +71,11 @@ module.exports = {
             req,
             res,
             async () => {
-                const classroom = await Classroom.find({ students: { $in: [req.user._id] } });
+                const classroom = await Classroom.find({ students: { $in: [req.user._id] } })
+                    .populate('member')
+                    .populate('user');
                 if (classroom) {
-                    res.status(200).json({ message: 'success', ...classroom });
+                    res.status(200).json({ message: 'success', classroom });
                 } else {
                     res.status(404).json({ message: 'not found' });
                 }

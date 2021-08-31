@@ -27,5 +27,5 @@ const TresponseSchema = new Schema(
         timestamps: true,
     }
 );
-const Tresponse = mongoose.model('Tresponse', TresponseSchema);
+const Tresponse = mongoose.model('tresponse', TresponseSchema);
 module.exports = { Tresponse };

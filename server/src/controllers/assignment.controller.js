@@ -44,7 +44,19 @@ module.exports = {
                 const totalresponse = await Aresponse.find({ user: _id });
                 const idl = totalresponse.map((item) => item._id);
                 const assignment = await Assignment.find({ _id: { $nin: idl } });
-                res.status(200).json({ message: 'success', ...assignment });
+                res.status(200).json({ message: 'success', assignment });
+            },
+            403
+        );
+    },
+    getSubmittedAssignment: async (req, res) => {
+        errorHandler(
+            req,
+            res,
+            async () => {
+                const { _id } = req.user;
+                const totalresponse = await Aresponse.find({ user: _id });
+                res.status(200).json({ message: 'success', totalresponse });
             },
             403
         );
@@ -64,7 +76,7 @@ module.exports = {
                     const newQuestion = await Question.create({ question: i.question, answer: answer._id });
                     await Assignment.findByIdAndUpdate(ass._id, { $push: { question: newQuestion._id } });
                 }
-                res.status(201).json({ message: 'success', ...ass });
+                res.status(201).json({ message: 'success', ass });
             },
             403
         );
