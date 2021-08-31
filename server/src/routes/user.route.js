@@ -3,7 +3,7 @@ const view = require('../controllers/user.controller');
 const isa = require('../middlewares/authCheck.middleware');
 const passport = require('../config/passport.config');
 
-router.post('/add', view.register);
+router.post('/register', view.register);
 router.post('/add/info', view.addInfo);
 router.post('/login', view.login);
 router.get('/logout', isa, view.logout);
