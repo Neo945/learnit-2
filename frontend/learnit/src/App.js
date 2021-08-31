@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import Assignments from "./pages/Assignments";
 import Meet from "./pages/Meet";
+import CalendarPage from "./pages/CalendarPage";
 
 function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
@@ -72,6 +73,7 @@ function App() {
               <Redirect to="/sign-up" />
             )}
           </Route>
+          <Route path="/calendar" component={CalendarPage} />
         </Switch>
       </Router>
     </>
