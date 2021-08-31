@@ -23,6 +23,7 @@ yarn install
     -   [Commands](#commands)
     -   [Environment Variables](#environment-variables)
     -   [Project Structure](#project-structure)
+    -   [Endpoints](#endpoints)
 
 ## Technologies
 
