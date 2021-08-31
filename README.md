@@ -1,4 +1,9 @@
 # Learnit
+LearnIt is all about organizing, managing the classroom oriented tasks. It also
+involves maintaining the database of students, teachers and the classes. The main aim
+of this project is providing an easy to handle and automated classroom management
+system. This project also features the interface for maintaining assignments and exams.
+The teachers can easily handle data in this application.
 
 ## Screenshots and their functionalities:
 
