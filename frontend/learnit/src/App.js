@@ -8,6 +8,7 @@ import SignUp from "./SignUp";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Assignments from "./pages/Assignments";
 import Meet from './pages/Meet';
+import CalendarPage from "./pages/CalendarPage";
 
 function App() {
   // const [user, setUser] = useState(true);
@@ -25,6 +26,7 @@ function App() {
           <Route path='/meet' render={(props) => (
             <Meet subject = {subject} />
           )} />
+          <Route path='/calendar' component={CalendarPage} />
         </Switch>
       </Router>
     </>
