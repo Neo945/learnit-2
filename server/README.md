@@ -30,7 +30,7 @@ yarn install
 -   **Authentication and authorization**: using [passport](http://www.passportjs.org) and [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 -   **Validation**: request data validation using [Joi](https://github.com/hapijs/joi)
 -   **Logging**: using [winston](https://github.com/winstonjs/winston) and [morgan](https://github.com/expressjs/morgan)
--   **Cloud storage**: with [AWS S3 bucket](https://github.com/winstonjs/winston)
+-   **Cloud storage**: with [AWS S3 bucket](https://aws.amazon.com/s3/)
 -   **Testing**: unit and integration tests using [Jest](https://jestjs.io)
 -   **Mailing**: with [Nodemailer](https://jestjs.io)
 -   **Error handling**: centralized error handling mechanism
@@ -40,8 +40,8 @@ yarn install
 -   **CORS**: Cross-Origin Resource-Sharing enabled using [cors](https://github.com/expressjs/cors)
 -   **Docker support**
 -   **Linting**: with [ESLint](https://eslint.org) (AirBnB style)
--   **Code formatting**: with [Prettier](https://eslint.org)
--   **Encryption**: with [Bcrypt](https://eslint.org)
+-   **Code formatting**: with [Prettier](https://prettier.io/)
+-   **Encryption**: with [Bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ## Commands
 
@@ -141,3 +141,5 @@ src\
 `GET /api/task/rem` - get user remaining task\
 `POST /api/task/create` - create task\
 `POST /api/task/create/res` - create task response\
+
+To test the server endpoint go to [Server](https://learn-it-server.herokuapp.com/)
