@@ -10,7 +10,7 @@ async function transport(to, subject, text) {
     });
     // eslint-disable-next-line no-return-await
     return await transporter.sendMail({
-        from: 'learnit11@gmail.com',
+        from: 'learnit80@gmail.com',
         to: `${to}`,
         subject: `${subject}`,
         text: `${text}`,
